@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050509"
+    >
+
+    <meta
+        name="description"
+        content="LAST DECREE — REAL NEXUS"
+    >
+
+    <title>
+        LAST DECREE // REAL NEXUS
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BOOT SCREEN
+===================================================== -->
+
+<div id="boot-screen">
+
+    <div class="boot-grid"></div>
+
+    <div class="boot-center">
+
+        <div class="boot-symbol">
+            ◈
+        </div>
+
+        <div class="boot-title">
+            LAST DECREE
+        </div>
+
+        <div class="boot-subtitle">
+            REAL NEXUS
+        </div>
+
+        <div class="boot-progress">
+
+            <div id="boot-bar"></div>
+
+        </div>
+
+        <div id="boot-text">
+            INITIALISATION...
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LOGIN SCREEN
+===================================================== -->
+
+<div id="auth-screen">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            ◈
+        </div>
+
+        <div class="auth-label">
+            CLASSIFIED SYSTEM
+        </div>
+
+        <h1>
+            LAST DECREE
+        </h1>
+
+        <p>
+            Accès au REAL NEXUS
+        </p>
+
+
+        <!-- LOGIN -->
+
+        <div id="login-form">
+
+            <input
+                id="login-email"
+                type="email"
+                placeholder="Adresse email"
+                autocomplete="email"
+            >
+
+            <input
+                id="login-password"
+                type="password"
+                placeholder="Mot de passe"
+                autocomplete="current-password"
+            >
+
+            <button
+                id="login-button"
+                class="primary-button"
+            >
+                ACCÉDER AU NEXUS
+            </button>
+
+            <button
+                id="show-register"
+                class="text-button"
+            >
+                Créer un compte
+            </button>
+
+        </div>
+
+
+        <!-- REGISTER -->
+
+        <div
+            id="register-form"
+            class="hidden"
+        >
+
+            <input
+                id="register-name"
+                type="text"
+                placeholder="Identifiant"
+            >
+
+            <input
+                id="register-email"
+                type="email"
+                placeholder="Adresse email"
+            >
+
+            <input
+                id="register-password"
+                type="password"
+                placeholder="Mot de passe"
+            >
+
+            <button
+                id="register-button"
+                class="primary-button"
+            >
+                CRÉER L'IDENTITÉ
+            </button>
+
+            <button
+                id="show-login"
+                class="text-button"
+            >
+                Retour à la connexion
+            </button>
+
+        </div>
+
+
+        <div
+            id="auth-message"
+            class="auth-message"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PARTICLES
+===================================================== -->
+
+<canvas id="particles"></canvas>
+
+<div class="ambient ambient-1"></div>
+<div class="ambient ambient-2"></div>
+
+<div class="scanlines"></div>
+
+
+<!-- =====================================================
+     APP
+===================================================== -->
+
+<div
+    id="app"
+    class="hidden"
+>
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-symbol">
+                ◈
+            </div>
+
+            <div>
+
+                <strong>
+                    LAST
+                </strong>
+
+                <span>
+                    DECREE
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+
+                <small>
+                    NEXUS
+                </small>
+
+                <b>
+                    ONLINE
+                </b>
+
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <button
+                class="nav-item active"
+                data-page="dashboard"
+            >
+                <span>⌂</span>
+                <label>Dashboard</label>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="decrets"
+            >
+                <span>◈</span>
+                <label>Décrets</label>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="archives"
+            >
+                <span>▣</span>
+                <label>Archives</label>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="hierarchy"
+            >
+                <span>♜</span>
+                <label>Hiérarchie</label>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="recruitment"
+            >
+                <span>+</span>
+                <label>Recrutement</label>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="control"
+                id="admin-nav"
+            >
+                <span>⚙</span>
+                <label>Contrôle</label>
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="access-card">
+
+                <small>
+                    IDENTITÉ
+                </small>
+
+                <strong id="sidebar-user">
+                    AGENT
+                </strong>
+
+                <div class="access-line">
+                    <span></span>
+                </div>
+
+                <small id="sidebar-role">
+                    MEMBER
+                </small>
+
+            </div>
+
+
+            <button
+                id="logout-button"
+                class="disconnect"
+            >
+                ⏻ Déconnexion
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================== -->
+
+    <main class="main">
+
+
+        <header class="topbar">
+
+            <button
+                id="mobile-menu"
+                class="mobile-menu"
+            >
+                ☰
+            </button>
+
+
+            <div class="breadcrumb">
+
+                <span>
+                    LAST DECREE
+                </span>
+
+                <b>/</b>
+
+                <strong id="current-page">
+                    DASHBOARD
+                </strong>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <button
+                    id="search-button"
+                    class="icon-button"
+                >
+                    ⌕
+                </button>
+
+
+                <button
+                    id="notification-button"
+                    class="icon-button"
+                >
+                    ♢
+                    <i></i>
+                </button>
+
+
+                <div class="profile">
+
+                    <div
+                        id="profile-avatar"
+                        class="profile-avatar"
+                    >
+                        LD
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong id="profile-name">
+                            AGENT
+                        </strong>
+
+                        <small id="profile-role">
+                            MEMBER
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- SEARCH -->
+
+        <div
+            id="search-panel"
+            class="search-panel"
+        >
+
+            <div class="search-inner">
+
+                <span>
+                    ⌕
+                </span>
+
+                <input
+                    id="global-search"
+                    type="text"
+                    placeholder="Rechercher..."
+                >
+
+                <button id="close-search">
+                    ESC
+                </button>
+
+            </div>
+
+            <div id="search-results"></div>
+
+        </div>
+
+
+        <!-- NOTIFICATIONS -->
+
+        <div
+            id="notification-panel"
+            class="notification-panel"
+        >
+
+            <div class="panel-title">
+
+                <strong>
+                    NOTIFICATIONS
+                </strong>
+
+                <span>
+                    LIVE
+                </span>
+
+            </div>
+
+            <div id="notifications-list">
+
+                <div class="notification">
+
+                    <span class="notification-icon">
+                        ⚡
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Nexus
+                        </strong>
+
+                        <small>
+                            Connexion sécurisée établie.
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div class="content">
+
+
+            <!-- DASHBOARD -->
+
+            <section
+                class="page active"
+                id="dashboard"
+            >
+
+                <div class="hero">
+
+                    <div class="hero-content">
+
+                        <div class="eyebrow">
+
+                            <span></span>
+
+                            REAL NEXUS
+
+                        </div>
+
+
+                        <h1>
+
+                            THE LAST
+                            <br>
+
+                            <span>
+                                DECREE
+                            </span>
+
+                        </h1>
+
+
+                        <p>
+
+                            Le système central de
+                            l'organisation. Données,
+                            Décrets et membres
+                            synchronisés en ligne.
+
+                        </p>
+
+
+                        <div class="hero-actions">
+
+                            <button
+                                class="primary-button"
+                                data-page-target="decrets"
+                            >
+                                VOIR LES DÉCRETS →
+                            </button>
+
+                            <button
+                                class="secondary-button"
+                                data-page-target="archives"
+                            >
+                                ARCHIVES
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-core">
+
+                        <div class="core-ring ring-1"></div>
+                        <div class="core-ring ring-2"></div>
+                        <div class="core-ring ring-3"></div>
+
+                        <div class="core-center">
+
+                            <span>
+                                LD
+                            </span>
+
+                            <small>
+                                ONLINE
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <span>
+                                DÉCRETS
+                            </span>
+
+                            <b>
+                                ◈
+                            </b>
+
+                        </div>
+
+                        <strong id="stat-decrets">
+                            0
+                        </strong>
+
+                        <small>
+                            EN LIGNE
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <span>
+                                MEMBRES
+                            </span>
+
+                            <b>
+                                ♟
+                            </b>
+
+                        </div>
+
+                        <strong id="stat-members">
+                            0
+                        </strong>
+
+                        <small>
+                            INSCRITS
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <span>
+                                ARCHIVES
+                            </span>
+
+                            <b>
+                                ▣
+                            </b>
+
+                        </div>
+
+                        <strong id="stat-archives">
+                            0
+                        </strong>
+
+                        <small>
+                            INDEXÉES
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <span>
+                                NEXUS
+                            </span>
+
+                            <b>
+                                ⚡
+                            </b>
+
+                        </div>
+
+                        <strong>
+                            100%
+                        </strong>
+
+                        <small>
+                            OPÉRATIONNEL
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <div class="glass-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="eyebrow-small">
+                                    FLUX
+                                </span>
+
+                                <h2>
+                                    Activité
+                                </h2>
+
+                            </div>
+
+                            <span class="live">
+                                ● LIVE
+                            </span>
+
+                        </div>
+
+                        <div
+                            id="activity-list"
+                            class="timeline"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="glass-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="eyebrow-small">
+                                    SYSTÈME
+                                </span>
+
+                                <h2>
+                                    État du Nexus
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="system-bars">
+
+                            <div class="system-bar">
+
+                                <div>
+
+                                    <span>
+                                        DATABASE
+                                    </span>
+
+                                    <b>
+                                        ONLINE
+                                    </b>
+
+                                </div>
+
+                                <i>
+                                    <em style="width:100%">
+                                    </em>
+                                </i>
+
+                            </div>
+
+
+                            <div class="system-bar">
+
+                                <div>
+
+                                    <span>
+                                        AUTH
+                                    </span>
+
+                                    <b>
+                                        ONLINE
+                                    </b>
+
+                                </div>
+
+                                <i>
+                                    <em style="width:100%">
+                                    </em>
+                                </i>
+
+                            </div>
+
+
+                            <div class="system-bar">
+
+                                <div>
+
+                                    <span>
+                                        NEXUS
+                                    </span>
+
+                                    <b>
+                                        100%
+                                    </b>
+
+                                </div>
+
+                                <i>
+                                    <em style="width:100%">
+                                    </em>
+                                </i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="system-online">
+
+                            <span></span>
+
+                            <div>
+
+                                <strong>
+                                    ALL SYSTEMS OPERATIONAL
+                                </strong>
+
+                                <small>
+                                    Firebase connecté
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- DECRETS -->
+
+            <section
+                class="page"
+                id="decrets"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            DATABASE
+                        </span>
+
+                        <h1>
+                            Décrets
+                        </h1>
+
+                        <p>
+                            Registre synchronisé du Nexus.
+                        </p>
+
+                    </div>
+
+                    <button
+                        id="new-decree-button"
+                        class="primary-button"
+                    >
+                        + NOUVEAU
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="decree-grid"
+                    class="decree-grid"
+                >
+
+                    <div class="loading-card">
+                        CHARGEMENT DES DÉCRETS...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ARCHIVES -->
+
+            <section
+                class="page"
+                id="archives"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            CLASSIFIED DATABASE
+                        </span>
+
+                        <h1>
+                            Archives
+                        </h1>
+
+                        <p>
+                            Index des données du Nexus.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="archive-grid">
+
+                    <div class="archive-folder">
+
+                        <span>
+                            ◈
+                        </span>
+
+                        <strong>
+                            Décrets
+                        </strong>
+
+                        <small id="archive-decrets">
+                            0 fichiers
+                        </small>
+
+                    </div>
+
+
+                    <div class="archive-folder">
+
+                        <span>
+                            ♟
+                        </span>
+
+                        <strong>
+                            Agents
+                        </strong>
+
+                        <small id="archive-agents">
+                            0 membres
+                        </small>
+
+                    </div>
+
+
+                    <div class="archive-folder">
+
+                        <span>
+                            ▣
+                        </span>
+
+                        <strong>
+                            Historique
+                        </strong>
+
+                        <small>
+                            Journal système
+                        </small>
+
+                    </div>
+
+
+                    <div class="archive-folder">
+
+                        <span>
+                            🔒
+                        </span>
+
+                        <strong>
+                            Classifié
+                        </strong>
+
+                        <small>
+                            Accès restreint
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- HIERARCHY -->
+
+            <section
+                class="page"
+                id="hierarchy"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            COMMAND STRUCTURE
+                        </span>
+
+                        <h1>
+                            Hiérarchie
+                        </h1>
+
+                        <p>
+                            Structure officielle.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hierarchy">
+
+                    <div class="rank rank-zero">
+
+                        <span>
+                            🜂
+                        </span>
+
+                        <div>
+
+                            <small>
+                                AUTORITÉ SUPRÊME
+                            </small>
+
+                            <h2>
+                                THE LAST DECREE
+                            </h2>
+
+                            <p>
+                                Autorité centrale.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank">
+
+                        <b>
+                            III
+                        </b>
+
+                        <div>
+
+                            <small>
+                                HÉRITIER
+                            </small>
+
+                            <h2>
+                                👑 Héritier
+                            </h2>
+
+                            <p>
+                                Successeur désigné.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank">
+
+                        <b>
+                            IV
+                        </b>
+
+                        <div>
+
+                            <small>
+                                MAIN DU DÉCRET
+                            </small>
+
+                            <h2>
+                                ⚖️ Main du Décret
+                            </h2>
+
+                            <p>
+                                Autorité exécutive.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank">
+
+                        <b>
+                            V
+                        </b>
+
+                        <div>
+
+                            <small>
+                                OMBRE
+                            </small>
+
+                            <h2>
+                                V — Ombre
+                            </h2>
+
+                            <p>
+                                Opérations discrètes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank">
+
+                        <b>
+                            VI
+                        </b>
+
+                        <div>
+
+                            <small>
+                                ÉMISSAIRE
+                            </small>
+
+                            <h2>
+                                🩸 Émissaire
+                            </h2>
+
+                            <p>
+                                Représentation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank">
+
+                        <b>
+                            VII
+                        </b>
+
+                        <div>
+
+                            <small>
+                                GARDIEN
+                            </small>
+
+                            <h2>
+                                🛡️ Gardien
+                            </h2>
+
+                            <p>
+                                Protection du Nexus.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank">
+
+                        <b>
+                            VIII
+                        </b>
+
+                        <div>
+
+                            <small>
+                                EXÉCUTEUR
+                            </small>
+
+                            <h2>
+                                ⚔️ Exécuteur
+                            </h2>
+
+                            <p>
+                                Application des directives.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank">
+
+                        <b>
+                            IX
+                        </b>
+
+                        <div>
+
+                            <small>
+                                VEILLEUR
+                            </small>
+
+                            <h2>
+                                🕯️ Veilleur
+                            </h2>
+
+                            <p>
+                                Surveillance.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank">
+
+                        <b>
+                            X
+                        </b>
+
+                        <div>
+
+                            <small>
+                                ARCHIVISTE
+                            </small>
+
+                            <h2>
+                                📜 Archiviste
+                            </h2>
+
+                            <p>
+                                Gestion documentaire.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank">
+
+                        <b>
+                            XI
+                        </b>
+
+                        <div>
+
+                            <small>
+                                OBSERVATEUR
+                            </small>
+
+                            <h2>
+                                👁️ Observateur
+                            </h2>
+
+                            <p>
+                                Premier niveau.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECRUITMENT -->
+
+            <section
+                class="page"
+                id="recruitment"
+            >
+
+                <div class="recruitment-panel">
+
+                    <div class="recruitment-content">
+
+                        <span class="eyebrow">
+                            ACCESS REQUEST
+                        </span>
+
+                        <h1>
+                            Rejoindre
+                            <br>
+                            <span>
+                                LAST DECREE
+                            </span>
+                        </h1>
+
+                        <p>
+                            Envoyez une candidature
+                            directement au Nexus.
+                        </p>
+
+
+                        <form
+                            id="recruitment-form"
+                        >
+
+                            <label>
+
+                                Motivation
+
+                                <textarea
+                                    id="recruitment-message"
+                                    required
+                                    placeholder="Votre motivation..."
+                                ></textarea>
+
+                            </label>
+
+
+                            <button
+                                class="primary-button"
+                                type="submit"
+                            >
+                                TRANSMETTRE →
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CONTROL -->
+
+            <section
+                class="page"
+                id="control"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            ADMINISTRATION
+                        </span>
+
+                        <h1>
+                            Centre de contrôle
+                        </h1>
+
+                        <p>
+                            Gestion du Nexus.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="control-grid">
+
+                    <div class="glass-card control-card">
+
+                        <span class="control-icon">
+                            ◈
+                        </span>
+
+                        <h2>
+                            Publier un Décret
+                        </h2>
+
+                        <p>
+                            Ajouter un nouveau Décret
+                            dans la base en ligne.
+                        </p>
+
+                        <button
+                            id="publish-decree"
+                            class="secondary-button"
+                        >
+                            OUVRIR
+                        </button>
+
+                    </div>
+
+
+                    <div class="glass-card control-card">
+
+                        <span class="control-icon">
+                            ♟
+                        </span>
+
+                        <h2>
+                            Membres
+                        </h2>
+
+                        <p>
+                            Consulter les membres
+                            enregistrés.
+                        </p>
+
+                        <button
+                            id="load-members"
+                            class="secondary-button"
+                        >
+                            CHARGER
+                        </button>
+
+                    </div>
+
+
+                    <div class="glass-card control-card">
+
+                        <span class="control-icon">
+                            ⚡
+                        </span>
+
+                        <h2>
+                            Système
+                        </h2>
+
+                        <p>
+                            État des services Firebase.
+                        </p>
+
+                        <button
+                            class="secondary-button"
+                            id="system-check"
+                        >
+                            VÉRIFIER
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="editor-panel"
+                    class="editor-panel"
+                >
+
+                    <div class="editor-header">
+
+                        <strong>
+                            NOUVEAU DÉCRET
+                        </strong>
+
+                        <button
+                            id="close-editor"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <input
+                        id="decree-title"
+                        type="text"
+                        placeholder="Titre du Décret"
+                    >
+
+
+                    <textarea
+                        id="decree-content"
+                        placeholder="Contenu du Décret..."
+                    ></textarea>
+
+
+                    <button
+                        id="save-decree"
+                        class="primary-button"
+                    >
+                        PUBLIER LE DÉCRET
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="members-panel"
+                    class="members-panel"
+                ></div>
+
+            </section>
+
+        </div>
+
+
+        <footer>
+
+            <span>
+                LAST DECREE // REAL NEXUS
+            </span>
+
+            <span>
+                FIREBASE CONNECTED
+            </span>
+
+            <span id="clock">
+                00:00:00
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast"
+>
+
+    <span>
+        ◈
+    </span>
+
+    <div>
+
+        <strong>
+            NEXUS
+        </strong>
+
+        <small id="toast-message">
+            Système opérationnel.
+        </small>
+
+    </div>
+
+</div>
+
+
+<!-- FIREBASE -->
+
+<script
+    type="module"
+    src="script.js"
+></script>
+
+
+</body>
+
+</html>
