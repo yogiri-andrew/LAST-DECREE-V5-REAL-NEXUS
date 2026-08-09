@@ -11,7 +11,7 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyA74bLLE8U25hikqfQWRF_7ODjp0FW0bGk",
+  apiKey: "TON_API_KEY",
   authDomain: "last-decree-nexus.firebaseapp.com",
   databaseURL: "https://last-decree-nexus-default-rtdb.firebaseio.com",
   projectId: "last-decree-nexus",
